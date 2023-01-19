@@ -22,11 +22,29 @@ def get_drink_ingredients(index):
     return ingredients
 
 
+def check_resources(ingredients):
+    """
+    Gets ingredients for drinks, checks is it enough resources to make coffee
+    and returns the rest of the ingredients
+    """
+    resources = SHEET.worksheet("resources").get_all_values()
+    resources_last_row = resources[-1]
+    resources_int = [int(value) for value in resources_last_row]
+    if resources_int > ingredients:
+        remain = [res - ing for res, ing in zip(resources_int, ingredients)]
+        return remain
+    else:
+        print("Sorry there is not enough ingredients for your drink")
+        return False
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
-    get_drink_ingredients(choice)
-
+    ingredients = get_drink_ingredients(choice)
+    print(ingredients)
+    print(check_resources(ingredients))
+    
 
 main()
