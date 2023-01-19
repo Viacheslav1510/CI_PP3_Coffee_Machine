@@ -15,6 +15,9 @@ SHEET = GSPREAD_CLIENT.open('coffee_machine')
 
 
 def logo():
+    """
+    Prints program logo
+    """
     print(Col.LOGO_V + "Welcome to:")
     print(" ")
     print(Col.LOGO_R + "  ****                                    ")
@@ -155,14 +158,17 @@ def validate_data(value):
                 "Coffee machine allows: '1', '2', '3' for choosing drink,\n \
                                     'off' and 'report'"
             )
-    except ValueError as e:
-        print(Col.RED + f"\nInvalid data - {e}, please try again.\n")
+    except ValueError as error:
+        print(Col.RED + f"\nInvalid data - {error}, please try again.\n")
         return False
 
     return True
 
 
 def main():
+    """
+    Run all program functions
+    """
     is_on = True
     while is_on:
         choice_prompt = Col.GREEN + "What would you like?\n"

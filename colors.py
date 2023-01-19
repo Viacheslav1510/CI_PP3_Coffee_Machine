@@ -5,6 +5,9 @@ init(autoreset=True)
 
 
 class Color:
+    """
+    Define colors for input and output
+    """
     YELLOW = "\033[1;33;48m"
     RED = "\033[1;31;48m"
     GREEN = "\033[1;32;48m"
