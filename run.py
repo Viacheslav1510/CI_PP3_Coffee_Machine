@@ -22,5 +22,11 @@ def get_drink_ingredients(index):
     return ingredients
 
 
-ingredients = get_drink_ingredients(1)
-print(ingredients)
+def main():
+    choice_prompt = "What would you like?\n"
+    choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
+    choice = input(choice_prompt)
+    get_drink_ingredients(choice)
+
+
+main()
