@@ -68,12 +68,32 @@ def insert_money():
     return total
 
 
+def check_transaction(money_received, drink_cost):
+    """
+    Checks if enough money to buy drink
+    Refunds user money if money received more than drink costs
+    Returns drink cost if transaction successfull
+    """
+    if money_received > drink_cost:
+        change = round(money_received - drink_cost, 2)
+        print(f"\nHere is your change {change}€")
+        return drink_cost
+    elif money_received == drink_cost:
+        print("Thanks for no change!")
+        return drink_cost
+    else:
+        print(f"There is not enough money. Drink costs {drink_cost}€.\n\
+        Money refunded")
+        return False
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
+    money_input = insert_money() 
     drink_cost = get_drink_cost(choice)
-    print(drink_cost)
+    check_transaction(money_input, drink_cost)
 
 
 main()
