@@ -22,6 +22,14 @@ def get_drink_ingredients(index):
     return ingredients
 
 
+def get_drink_cost(index):
+    """
+    Gets user input and returns drink integer cost
+    """
+    drink_cost = SHEET.worksheet("menu").col_values(int(index))[-1]
+    return int(drink_cost)
+
+
 def check_resources(ingredients):
     """
     Gets ingredients for drinks, checks is it enough resources to make coffee
@@ -64,7 +72,8 @@ def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
-    insert_money()
+    drink_cost = get_drink_cost(choice)
+    print(drink_cost)
 
 
 main()
