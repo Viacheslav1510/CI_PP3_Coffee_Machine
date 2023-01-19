@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from colors import Color as Col
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -16,18 +17,18 @@ SHEET = GSPREAD_CLIENT.open('coffee_machine')
 def logo():
     print("Welcome to:")
     print(" ")
-    print("  ****                                    ")
-    print(" **    *     ****     ****    ***  *****  **** ")
-    print(" **        **    **  **     **     *      *    ")
-    print(" **        **    **  ****   ****   ****   **** ")
-    print(" **    *   **    **  **     **     *      *    ")
-    print("  *****      ****    **     **     *****  **** ")
+    print(Col.LOGO_R + "  ****                                    ")
+    print(Col.LOGO_R + " **    *     ****     ****    ***  *****  **** ")
+    print(Col.LOGO_R + " **        **    **  **     **     *      *    ")
+    print(Col.LOGO_P + " **        **    **  ****   ****   ****   **** ")
+    print(Col.LOGO_P + " **    *   **    **  **     **     *      *    ")
+    print(Col.LOGO_P + "  *****      ****    **     **     *****  **** ")
     print(" ")
-    print("                ******  **   **      **   **** ")
-    print("                  **         ** *  * **   *    ")
-    print("                  **    **   **  *   **   **** ")
-    print("                  **    **   **      **   *    ")
-    print("                  **    **   **      **   **** ")
+    print(Col.LOGO_V + "                ******  **   **      **   **** ")
+    print(Col.LOGO_V + "                  **         ** *  * **   *    ")
+    print(Col.LOGO_V + "                  **    **   **  *   **   **** ")
+    print(Col.LOGO_V + "                  **    **   **      **   *    ")
+    print(Col.LOGO_V + "                  **    **   **      **   **** ")
     print(" ")
 
 
@@ -80,9 +81,9 @@ def insert_money():
     Returns the total calculated from coins inserted.
     """
     print("\nPlease insert coins")
-    total = int(input("How many 20c: ")) * 0.2
-    total += int(input("How many 50c: ")) * 0.5
-    total += int(input("How many 1€: "))
+    total = int(input(Col.BLUE + "How many 20c: ")) * 0.2
+    total += int(input(Col.BLUE + "How many 50c: ")) * 0.5
+    total += int(input(Col.BLUE + "How many 1€: "))
     return total
 
 
@@ -164,8 +165,8 @@ def validate_data(value):
 def main():
     is_on = True
     while is_on:
-        choice_prompt = "What would you like?\n"
-        choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
+        choice_prompt = Col.GREEN + "What would you like?\n"
+        choice_prompt += Col.YELLOW + "espresso(1)/cappuccino(2)/latte(3): "
         choice = input(choice_prompt)
         if validate_data(choice):
             if choice == 'off':
