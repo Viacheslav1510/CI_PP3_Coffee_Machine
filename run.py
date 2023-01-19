@@ -38,13 +38,24 @@ def check_resources(ingredients):
         return False
 
 
+def update_resources(data):
+    """
+    Receives a list of the rest of the ingredients.
+    Update resources worksheet with data provided
+    """
+    print("Updating resources ... ")
+    resources_worksheet = SHEET.worksheet('resources')
+    resources_worksheet.append_row(data)
+    print("Resources updated successfully\n")
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
     ingredients = get_drink_ingredients(choice)
-    print(ingredients)
-    print(check_resources(ingredients))
-    
+    resourses_remain = check_resources(ingredients)
+    update_resources(resourses_remain)
+
 
 main()
