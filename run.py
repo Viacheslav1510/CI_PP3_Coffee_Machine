@@ -109,22 +109,43 @@ def make_coffee(index):
     """
     print("Making your coffee ...")
     drink_name = SHEET.worksheet("menu").col_values(int(index))[0]
-    print(f"Here is your {drink_name}☕. Enjoy!")
+    print(f"Here is your {drink_name}☕. Enjoy!\n")
+
+
+def report():
+    """
+    Prints report for resources and profit
+    """
+    resources_data = SHEET.worksheet("resources").get_all_values()
+    coffee = resources_data[-1][0]
+    water = resources_data[-1][1]
+    milk = resources_data[-1][2]
+    print(f"Remains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
+    profit_data = SHEET.worksheet("profit").get_all_values()
+    print(f"All profit: {profit_data[-1][0]}€")
 
 
 def main():
-    choice_prompt = "What would you like?\n"
-    choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
-    choice = input(choice_prompt)
-    ingredients = get_drink_ingredients(choice)
-    if check_resources(ingredients):
-        drink_cost = get_drink_cost(choice)
-        user_money = insert_money()
-        if check_transaction(user_money, drink_cost):
-            remain_ingredients = check_resources(ingredients)
-            update_resources(remain_ingredients)
-            update_profit(drink_cost)
-            make_coffee(choice)
+    is_on = True
+    while is_on:
+        choice_prompt = "What would you like?\n"
+        choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
+        choice = input(choice_prompt)
+        if choice == 'off':
+            print("See you soon!")
+            is_on = False
+        elif choice == 'report':
+            report()
+        else:
+            ingredients = get_drink_ingredients(choice)
+            if check_resources(ingredients):
+                drink_cost = get_drink_cost(choice)
+                user_money = insert_money()
+                if check_transaction(user_money, drink_cost):
+                    remain_ingredients = check_resources(ingredients)
+                    update_resources(remain_ingredients)
+                    update_profit(drink_cost)
+                    make_coffee(choice)
 
 
 main()
