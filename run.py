@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('coffee_machine')
 
 
 def logo():
-    print("Welcome to:")
+    print(Col.LOGO_V + "Welcome to:")
     print(" ")
     print(Col.LOGO_R + "  ****                                    ")
     print(Col.LOGO_R + " **    *     ****     ****    ***  *****  **** ")
@@ -61,7 +61,7 @@ def check_resources(ingredients):
         remain = [res - ing for res, ing in zip(resources_int, ingredients)]
         return remain
     else:
-        print("Sorry there is not enough ingredients for your drink")
+        print(Col.RED + "Sorry there is not enough ingredients for your drink")
         return False
 
 
@@ -70,10 +70,10 @@ def update_resources(data):
     Receives a list of the rest of the ingredients.
     Update resources worksheet with data provided
     """
-    print("Updating resources ... ")
+    print(Col.UPDATE + "Updating resources ... ")
     resources_worksheet = SHEET.worksheet('resources')
     resources_worksheet.append_row(data)
-    print("Resources updated successfully\n")
+    print(Col.UPDATE + "Resources updated successfully\n")
 
 
 def insert_money():
@@ -101,7 +101,7 @@ def check_transaction(money_received, drink_cost):
         print("Thanks for exact change!\n")
         return drink_cost
     else:
-        print(f"There is not enough money. Drink costs {drink_cost}€.\n\
+        print(Col.RED + f"There is not enough money. Drink costs {drink_cost}€.\n\
         Money refunded")
         return False
 
@@ -112,23 +112,23 @@ def update_profit(value):
     Adds drink cost to previous profit value
     Updates profit worksheet row with data provided
     """
-    print("Collecting profit ...")
+    print(Col.UPDATE + "Collecting profit ...")
     profit_worksheet = SHEET.worksheet("profit")
     profit_column = SHEET.worksheet("profit").get_all_values()
     previous_profit = [int(num) for num in profit_column[-1]]
     new_profit = [value]
     up_profit = [pre + new for pre, new in zip(previous_profit, new_profit)]
     profit_worksheet.append_row(up_profit)
-    print("Profit updated.\n")
+    print(Col.UPDATE + "Profit updated.\n")
 
 
 def make_coffee(index):
     """
     Makes coffee if all statements are True
     """
-    print("Making your coffee ...")
+    print(Col.UPDATE + "Making your coffee ...")
     drink_name = SHEET.worksheet("menu").col_values(int(index))[0]
-    print(f"Here is your {drink_name}☕. Enjoy!\n")
+    print(Col.BLUE + f"Here is your {drink_name}☕. Enjoy!\n")
 
 
 def report():
@@ -139,9 +139,9 @@ def report():
     coffee = resources_data[-1][0]
     water = resources_data[-1][1]
     milk = resources_data[-1][2]
-    print(f"\nRemains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
+    print(Col.UPDATE + f"\nRemains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
     profit_data = SHEET.worksheet("profit").get_all_values()
-    print(f"All profit: {profit_data[-1][0]}€\n")
+    print(Col.UPDATE + f"All profit: {profit_data[-1][0]}€\n")
 
 
 def validate_data(value):
@@ -156,7 +156,7 @@ def validate_data(value):
                                     'off' and 'report'"
             )
     except ValueError as e:
-        print(f"\nInvalid data - {e}, please try again.\n")
+        print(Col.RED + f"\nInvalid data - {e}, please try again.\n")
         return False
 
     return True
@@ -166,7 +166,7 @@ def main():
     is_on = True
     while is_on:
         choice_prompt = Col.GREEN + "What would you like?\n"
-        choice_prompt += Col.YELLOW + "espresso(1)/cappuccino(2)/latte(3): "
+        choice_prompt += Col.GREEN + "espresso(1)/cappuccino(2)/latte(3): "
         choice = input(choice_prompt)
         if validate_data(choice):
             if choice == 'off':
