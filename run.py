@@ -13,6 +13,24 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('coffee_machine')
 
 
+def logo():
+    print("Welcome to:")
+    print(" ")
+    print("  ****                                    ")
+    print(" **    *     ****     ****    ***  *****  **** ")
+    print(" **        **    **  **     **     *      *    ")
+    print(" **        **    **  ****   ****   ****   **** ")
+    print(" **    *   **    **  **     **     *      *    ")
+    print("  *****      ****    **     **     *****  **** ")
+    print(" ")
+    print("                ******  **   **      **   **** ")
+    print("                  **         ** *  * **   *    ")
+    print("                  **    **   **  *   **   **** ")
+    print("                  **    **   **      **   *    ")
+    print("                  **    **   **      **   **** ")
+    print(" ")
+
+
 def get_drink_ingredients(index):
     """
     Gets user input and returns ingredients integer list
@@ -133,11 +151,11 @@ def validate_data(value):
     try:
         if value not in allowed_inputs:
             raise ValueError(
-                "Coffee machine allows '1', '2', '3' for choosing drink,\n \
-                    'off' and 'report'"
+                "Coffee machine allows: '1', '2', '3' for choosing drink,\n \
+                                    'off' and 'report'"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+        print(f"\nInvalid data - {e}, please try again.\n")
         return False
 
     return True
@@ -167,4 +185,5 @@ def main():
                         make_coffee(choice)
 
 
+logo()
 main()
