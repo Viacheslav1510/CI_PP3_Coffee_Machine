@@ -103,6 +103,15 @@ def update_profit(value):
     print("Profit updated.\n")
 
 
+def make_coffee(index):
+    """
+    Makes coffee if all statements are True
+    """
+    print("Making your coffee ...")
+    drink_name = SHEET.worksheet("menu").col_values(int(index))[0]
+    print(f"Here is your {drink_name}☕. Enjoy!")
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
@@ -113,9 +122,9 @@ def main():
         user_money = insert_money()
         if check_transaction(user_money, drink_cost):
             remain_ingredients = check_resources(ingredients)
-            profit = drink_cost
             update_resources(remain_ingredients)
-            update_profit(profit)
+            update_profit(drink_cost)
+            make_coffee(choice)
 
 
 main()
