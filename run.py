@@ -49,13 +49,22 @@ def update_resources(data):
     print("Resources updated successfully\n")
 
 
+def insert_money():
+    """
+    Returns the total calculated from coins inserted.
+    """
+    print("\nPlease insert coins")
+    total = int(input("How many 20c: ")) * 0.2
+    total += int(input("How many 50c: ")) * 0.5
+    total += int(input("How many 1€: "))
+    return total
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
-    ingredients = get_drink_ingredients(choice)
-    resourses_remain = check_resources(ingredients)
-    update_resources(resourses_remain)
+    insert_money()
 
 
 main()
