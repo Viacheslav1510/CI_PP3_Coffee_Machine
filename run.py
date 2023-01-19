@@ -120,9 +120,27 @@ def report():
     coffee = resources_data[-1][0]
     water = resources_data[-1][1]
     milk = resources_data[-1][2]
-    print(f"Remains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
+    print(f"\nRemains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
     profit_data = SHEET.worksheet("profit").get_all_values()
-    print(f"All profit: {profit_data[-1][0]}€")
+    print(f"All profit: {profit_data[-1][0]}€\n")
+
+
+def validate_data(value):
+    """
+    Validates user input
+    """
+    allowed_inputs = ['1', '2', '3', 'off', 'report']
+    try:
+        if value not in allowed_inputs:
+            raise ValueError(
+                "Coffee machine allows '1', '2', '3' for choosing drink,\n \
+                    'off' and 'report'"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
 
 
 def main():
@@ -131,21 +149,22 @@ def main():
         choice_prompt = "What would you like?\n"
         choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
         choice = input(choice_prompt)
-        if choice == 'off':
-            print("See you soon!")
-            is_on = False
-        elif choice == 'report':
-            report()
-        else:
-            ingredients = get_drink_ingredients(choice)
-            if check_resources(ingredients):
-                drink_cost = get_drink_cost(choice)
-                user_money = insert_money()
-                if check_transaction(user_money, drink_cost):
-                    remain_ingredients = check_resources(ingredients)
-                    update_resources(remain_ingredients)
-                    update_profit(drink_cost)
-                    make_coffee(choice)
+        if validate_data(choice):
+            if choice == 'off':
+                print("See you soon!")
+                is_on = False
+            elif choice == 'report':
+                report()
+            else:
+                ingredients = get_drink_ingredients(choice)
+                if check_resources(ingredients):
+                    drink_cost = get_drink_cost(choice)
+                    user_money = insert_money()
+                    if check_transaction(user_money, drink_cost):
+                        remain_ingredients = check_resources(ingredients)
+                        update_resources(remain_ingredients)
+                        update_profit(drink_cost)
+                        make_coffee(choice)
 
 
 main()
