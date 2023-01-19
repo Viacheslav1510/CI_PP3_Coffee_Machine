@@ -76,10 +76,10 @@ def check_transaction(money_received, drink_cost):
     """
     if money_received > drink_cost:
         change = round(money_received - drink_cost, 2)
-        print(f"\nHere is your change {change}€")
+        print(f"Here is your change {change}€\n")
         return drink_cost
     elif money_received == drink_cost:
-        print("Thanks for no change!")
+        print("Thanks for exact change!\n")
         return drink_cost
     else:
         print(f"There is not enough money. Drink costs {drink_cost}€.\n\
@@ -93,7 +93,7 @@ def update_profit(value):
     Adds drink cost to previous profit value
     Updates profit worksheet row with data provided
     """
-    print("\nCollecting profit ...")
+    print("Collecting profit ...")
     profit_worksheet = SHEET.worksheet("profit")
     profit_column = SHEET.worksheet("profit").get_all_values()
     previous_profit = [int(num) for num in profit_column[-1]]
@@ -107,10 +107,15 @@ def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
     choice = input(choice_prompt)
-    money_input = insert_money() 
-    drink_cost = get_drink_cost(choice)
-    check_transaction(money_input, drink_cost)
-    update_profit(drink_cost)
+    ingredients = get_drink_ingredients(choice)
+    if check_resources(ingredients):
+        drink_cost = get_drink_cost(choice)
+        user_money = insert_money()
+        if check_transaction(user_money, drink_cost):
+            remain_ingredients = check_resources(ingredients)
+            profit = drink_cost
+            update_resources(remain_ingredients)
+            update_profit(profit)
 
 
 main()
