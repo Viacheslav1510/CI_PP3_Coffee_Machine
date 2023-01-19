@@ -87,6 +87,22 @@ def check_transaction(money_received, drink_cost):
         return False
 
 
+def update_profit(value):
+    """
+    Receives a drink cost value.
+    Adds drink cost to previous profit value
+    Updates profit worksheet row with data provided
+    """
+    print("\nCollecting profit ...")
+    profit_worksheet = SHEET.worksheet("profit")
+    profit_column = SHEET.worksheet("profit").get_all_values()
+    previous_profit = [int(num) for num in profit_column[-1]]
+    new_profit = [value]
+    up_profit = [pre + new for pre, new in zip(previous_profit, new_profit)]
+    profit_worksheet.append_row(up_profit)
+    print("Profit updated.\n")
+
+
 def main():
     choice_prompt = "What would you like?\n"
     choice_prompt += "espresso(1)/cappuccino(2)/latte(3): "
@@ -94,6 +110,7 @@ def main():
     money_input = insert_money() 
     drink_cost = get_drink_cost(choice)
     check_transaction(money_input, drink_cost)
+    update_profit(drink_cost)
 
 
 main()
