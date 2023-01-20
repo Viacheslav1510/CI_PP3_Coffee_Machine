@@ -7,7 +7,7 @@ def get_email():
     Gets email from user input
     """
     while True:
-        email = input("Please enter your email to pass: ").strip()
+        email = input(Col.YELLOW + "Please enter your email to pass: ").strip()
 
         if vaidate_email_input(email):
             break
@@ -23,7 +23,7 @@ def vaidate_email_input(email):
         validate_email(email)
         return True
     except EmailNotValidError as error:
-        print(Col.RED + f"{error}")
+        print(Col.RED + f"\n{error}")
         print(Col.RED + "Please try again.\n")
 
 
