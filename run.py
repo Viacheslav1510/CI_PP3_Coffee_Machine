@@ -1,6 +1,6 @@
 import gspread
-import validation as val
 from google.oauth2.service_account import Credentials
+import validation as val
 from colors import Color as Col
 
 SCOPE = [
@@ -109,8 +109,9 @@ def check_transaction(money_received, drink_cost):
         return drink_cost
 
     else:
-        print(Col.RED + f"There is not enough money. Drink costs {drink_cost}€.\n\
-        Money refunded")
+        message = f"There is not enough money. Drink costs {drink_cost}€.\n"
+        message += "Money refunded"
+        print(Col.RED + message)
         return False
 
 
@@ -144,10 +145,10 @@ def report():
     Prints report for resources and profit
     """
     resources_data = SHEET.worksheet("resources").get_all_values()
-    coffee = resources_data[-1][0]
-    water = resources_data[-1][1]
-    milk = resources_data[-1][2]
-    print(Col.UPDATE + f"\nRemains: coffee - {coffee}g, water - {water}ml, milk - {milk}ml")
+    message = f"\nRemains: \nCoffee: {resources_data[-1][0]}g,"
+    message += f" Water: {resources_data[-1][1]}ml,"
+    message += f" Milk: {resources_data[-1][2]}ml."
+    print(Col.UPDATE + message)
     profit_data = SHEET.worksheet("profit").get_all_values()
     print(Col.UPDATE + f"All profit: {profit_data[-1][0]}€\n")
 
