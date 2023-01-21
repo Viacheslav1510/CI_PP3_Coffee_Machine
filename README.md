@@ -32,6 +32,11 @@ This is a command-line program for the Coffee Machine
     - [Coffee machine Owner](#coffee-machine-owner)
   - [Technical Design](#technical-design)
     - [Flowchart](#flowchart)
+    - [Languages](#languages)
+    - [Frameworks \& Tools](#frameworks--tools)
+    - [Libraries](#libraries)
+      - [Python Libraries](#python-libraries)
+      - [Third Party Libraries](#third-party-libraries)
 
 
 ## Project Goals
@@ -119,3 +124,29 @@ The following flowchart summarises the structure and logic of the application.
 <details><summary>Flowchart</summary>
 <img src="docs/flowchart.png">
 </details>
+
+### Languages
+
+- [Python](https://www.python.org/) programming language for the logic of the program
+
+### Frameworks & Tools
+
+- [Diagrams.net](https://app.diagrams.net/) was used to draw program flowchart
+- [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store drinks menu, resources and profit
+- [Google Cloud Platform](https://cloud.google.com/cloud-console/) was used to manage access and permissions to the Google Services such as Google auth, sheets etc.
+- [GitHub](https://github.com/) was used as a remote repository to store project code
+- [Heroku Platform](https://dashboard.heroku.com/) was used to deploy the project into live environment
+
+### Libraries
+
+#### Python Libraries
+
+- [unittest](https://docs.python.org/3/library/unittest.html) - used to carry out testing on single units in validation.py file
+
+#### Third Party Libraries
+
+- [colorama](https://pypi.org/project/colorama/) - Used this library to add color to the terminal and enhance user experience. I marked warning/error information with color red and user feedback with blue and green. Yellow color used for email verification. 
+- [email_validator](https://pypi.org/project/email-validator/) - This library used to validate if user email input is of the form name@</span>example.com
+- [gspread](https://docs.gspread.org/en/latest/) - Used gspread to add and manipulate data in the Google spreadsheet and to interact with Google APIs
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - This module used to set up the authentification needed to access the Google API and connect my Service Account with the Credentials function. A creds.json file is created with all details the API needs to access the google account.
+
