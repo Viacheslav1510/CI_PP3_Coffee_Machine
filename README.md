@@ -27,6 +27,9 @@ This is a command-line program for the Coffee Machine
       - [Drink prepared](#drink-prepared)
       - [Report](#report)
       - [Off](#off)
+  - [User Stories](#user-stories)
+    - [Users](#users)
+    - [Coffee machine Owner](#coffee-machine-owner)
 
 
 ## Project Goals
@@ -85,3 +88,23 @@ This is a command-line program for the Coffee Machine
 
 #### Off
 - To stop program user can type "off" in main menu
+
+## User Stories
+
+### Users
+
+1. I want to have clear options to select drink
+2. I want to be able to insert money 
+3. I want to get change if I insert more money than drink cost
+4. I want to receive a real time feedback throughout the program running
+5. I want to see report
+6. I want to be able to turn off the coffee machine
+
+### Coffee machine Owner
+
+7. I want users to easily select options from the menu
+8. I want the user to get feedback in case of wrong input
+9. I want collect profit after user insert money
+10. I want to let user to see report after authorization
+11. I want to validate wrong email input
+12. I want to update google sheets while user makes their drink
