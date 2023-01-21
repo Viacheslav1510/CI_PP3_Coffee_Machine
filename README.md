@@ -117,5 +117,5 @@ This is a command-line program for the Coffee Machine
 The following flowchart summarises the structure and logic of the application.
 
 <details><summary>Flowchart</summary>
-<img src="docs/">
+<img src="docs/flowchart.png">
 </details>
