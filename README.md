@@ -44,6 +44,7 @@ This is a command-line program for the Coffee Machine
     - [Drink Prepared](#drink-prepared-1)
     - [Report](#report-1)
     - [Turn Off Coffee Machine](#turn-off-coffee-machine)
+    - [Google Sheets](#google-sheets)
   - [Validation](#validation)
   - [Testing](#testing)
     - [Manual Testing](#manual-testing)
@@ -256,6 +257,26 @@ The following flowchart summarises the structure and logic of the application.
 <img src="docs/features/turn_off.png">
 </details>
 
+### Google Sheets
+- Google sheets used to store coffee machine data
+- There are three worksheets:
+  - Menu worksheet 
+    <details>
+    <summary>See feature</summary>
+    <img src="docs/features/menu.png">
+    </details>
+  - Resources worksheet 
+    <details>
+    <summary>See feature</summary>
+    <img src="docs/features/resources.png">
+    </details> 
+  - Profit worksheet 
+    <details>
+    <summary>See feature</summary>
+    <img src="docs/features/profit.png">
+    </details>  
+ 
+
 ## Validation
 
 [PEP8 Python Validator](https://pep8ci.herokuapp.com/) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
@@ -327,4 +348,93 @@ The testing approach is as follows:
 <details><summary>Screenshot</summary>
 <img src="docs/testing/story4-1.png">
 <img src="docs/testing/story4-2.png">
+</details>
+
+5. I want to see report
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Enter 'report' | Users can pass after email enter| Works as expected |
+| Report | Enter valid email | Users can see resources remains and profit| Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story5-1.png">
+<img src="docs/testing/story5-2.png">
+</details>
+
+6. I want to be able to turn off the coffee machine
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Enter 'off' | Program stoped, user can see message| Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story6.png">
+</details>
+
+7. I want users to easily select options from the menu
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Enter '1', '2' or '3' | Drink selected| Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story7.png">
+</details>
+
+8. I want the user to get feedback in case of wrong input
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Enter not allowed input | User see message with allowed inputs| Works as expected | 
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story8.png">
+</details>
+
+9. I want collect profit after user insert money
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Money inserted| Program collects drink cost | User see message about profit updating| Works as expected | 
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story9.png">
+</details>
+
+10. I want to let user to see report after authorization
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Report| Program ask user to enter email | User can see message to enter email| Works as expected | 
+| Report| Type valid email | User can see report| Works as expected | 
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story10.png">
+</details>
+
+11. I want to validate wrong email input 
+
+| **Feature**   | **Action** | **Expected Result**        | **Actual Result** |
+| ------------- | ---------- | -------------------------- | ----------------- |
+| Report| Email not valid | User can try enter email again| Works as expected | 
+| Report| Email valid | User can see report| Works as expected | 
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story11-1.png">
+<img src="docs/testing/story11-2.png">
+</details>
+
+12.  I want to update google sheets while user makes their drink
+
+| **Feature**   | **Action** | **Expected Result**        | **Actual Result** |
+| ------------- | ---------- | -------------------------- | ----------------- |
+| Money inserted| Program makes coffee | User can see message about profit and resources updating| Works as expected | 
+| Google sheets| Make coffee | Resources worksheet updated | Works as expected | 
+| Google sheets| Make coffee | Profit worksheet updated | Works as expected | 
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story12-1.png">
+<img src="docs/testing/story12-2.png">
+<img src="docs/testing/story12-3.png">
 </details>
