@@ -49,6 +49,7 @@ This is a command-line program for the Coffee Machine
   - [Testing](#testing)
     - [Manual Testing](#manual-testing)
     - [Automated Testing](#automated-testing)
+  - [Bugs](#bugs)
 
 
 ## Project Goals
@@ -448,3 +449,14 @@ The testing approach is as follows:
 - Were tested separate functions to verify correct and incorect user input for validation data input and validation email input
   <img src="docs/testing/auto_test_code.png">
   <img src="docs/testing/auto_test_result.png">
+</details>
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+| Incorrect input in main question raises ValueError | Make validation function to let user type again |
+| Program makes coffee regardless of whether the ingredients are enough | Move the check resources function at the top within if/else statement |
+| Update profit function raises an error when you put an integer value | Convert value to list|
+| Program stops when the drink is done | Put program inside while loop and give opportunity to off it manual|
+| Program gives change in infinite number | Round change to two decimal places|
