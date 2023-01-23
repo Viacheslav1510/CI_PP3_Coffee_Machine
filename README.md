@@ -42,6 +42,8 @@ This is a command-line program for the Coffee Machine
     - [Drink choosen](#drink-choosen)
     - [Money inserted](#money-inserted)
     - [Drink Prepared](#drink-prepared-1)
+    - [Report](#report-1)
+    - [Turn Off Coffee Machine](#turn-off-coffee-machine)
 
 
 ## Project Goals
@@ -221,4 +223,32 @@ The following flowchart summarises the structure and logic of the application.
 <details>
 <summary>Update Program Feedback Screenshot</summary>
 <img src="docs/features/update_feedback.png">
+</details>
+
+### Report 
+- User can check report about resources and profit
+- Program ask to insert valid email to pass 
+  - If email not valid user receive a message to try again
+  - If email valid user can see resources remain and profit
+- User stories covered: 5, 10, 11
+<details>
+<summary>Enter Email Screenshot</summary>
+<img src="docs/features/enter_email.png">
+</details>
+<details>
+<summary>Email Valid Screenshot</summary>
+<img src="docs/features/email_valid.png">
+</details>
+<details>
+<summary>Email Not Valid Screenshot</summary>
+<img src="docs/features/email_not_valid.png">
+</details>
+
+### Turn Off Coffee Machine
+- User can type 'off' to turn of the coffe machine
+- User receive message "See you soon"
+- User stories covered: 6
+<details>
+<summary>Turn Off Screenshot</summary>
+<img src="docs/features/turn_off.png">
 </details>
