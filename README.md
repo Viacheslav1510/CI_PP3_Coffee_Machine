@@ -48,6 +48,7 @@ This is a command-line program for the Coffee Machine
   - [Validation](#validation)
   - [Testing](#testing)
     - [Manual Testing](#manual-testing)
+    - [Automated Testing](#automated-testing)
 
 
 ## Project Goals
@@ -438,3 +439,12 @@ The testing approach is as follows:
 <img src="docs/testing/story12-2.png">
 <img src="docs/testing/story12-3.png">
 </details>
+</details>
+
+### Automated Testing
+<details><summary>See unit testing</summary>
+
+- unittest Python library was used  to test my validation functions
+- Were tested separate functions to verify correct and incorect user input for validation data input and validation email input
+  <img src="docs/testing/auto_test_code.png">
+  <img src="docs/testing/auto_test_result.png">
