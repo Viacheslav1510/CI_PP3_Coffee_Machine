@@ -259,17 +259,17 @@ The following flowchart summarises the structure and logic of the application.
 [PEP8 Python Validator](https://pep8ci.herokuapp.com/) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
 
 <details><summary>Check for run.py</summary>
-<img src="docs/validation">
+<img src="docs/validation/run_validation.png">
 </details>
 
 <details><summary>Check for validation.py</summary>
-<img src="docs/validation">
+<img src="docs/validation/validation_py_valid.png">
 </details>
 
 <details><summary>Check for colors.py</summary>
-<img src="docs/validation">
+<img src="docs/validation/colors_validation.png">
 </details>
 
 <details><summary>Check for test_validation.py</summary>
-<img src="docs/validation">
+<img src="docs/validation/test_py_validation.png">
 </details>
