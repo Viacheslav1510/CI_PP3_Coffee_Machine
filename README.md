@@ -37,6 +37,11 @@ This is a command-line program for the Coffee Machine
     - [Libraries](#libraries)
       - [Python Libraries](#python-libraries)
       - [Third Party Libraries](#third-party-libraries)
+  - [Features](#features)
+    - [Program started](#program-started-1)
+    - [Drink choosen](#drink-choosen)
+    - [Money inserted](#money-inserted)
+    - [Drink Prepared](#drink-prepared-1)
 
 
 ## Project Goals
@@ -150,3 +155,70 @@ The following flowchart summarises the structure and logic of the application.
 - [gspread](https://docs.gspread.org/en/latest/) - Used gspread to add and manipulate data in the Google spreadsheet and to interact with Google APIs
 - [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - This module used to set up the authentification needed to access the Google API and connect my Service Account with the Credentials function. A creds.json file is created with all details the API needs to access the google account.
 
+## Features
+
+### Program started
+- User can see logo of the program
+- User can choose their favourite drink
+- User can off the machine or look at report
+- User stories covered: 1, 7
+<details>
+<summary>Program started Screenshot</summary>
+<img src="docs/features/program_started.png">
+</details>
+
+### Drink choosen
+- If resources sufficient:
+  - User can see message insert coins to buy coffee
+  - Program ask user hom many 20c, 50c and 1€ coins user insert
+  - User stories covered: 2
+  <details>
+  <summary>Resources enough Screenshot</summary>
+  <img src="docs/features/enough_resources.png">
+  </details>
+
+- If resources not enough:
+  - User receive a message that resources is not enough to make drink
+  - User stories covered: 4
+  <details>
+  <summary>Resources not enough Screenshot</summary>
+  <img src="docs/features/no_resources.png">
+  </details>
+
+### Money inserted
+- If money enough to buy drink
+  - User receive their change
+  - User see message about updating profit and resources
+  - User see message that their drink prepared
+  - User stories covered: 3, 4, 9
+  <details>
+  <summary>Money enough Screenshot</summary>
+  <img src="docs/features/money_enough.png">
+  </details>
+- If money not enough to make coffee:
+  - User notified that not enough money to buy drink 
+  - User can see message about drink cost
+  - User can choose their drink again
+  - User stories covered: 8      
+  <details>
+  <summary>Resources not enough Screenshot</summary>
+  <img src="docs/features/money_not_enough.png">
+  </details>
+
+### Drink Prepared
+- Program updates resources worksheet
+- Program updates profit worksheet
+- Program gives a feedback about updating worksheet
+- User stories covered: 9, 12
+<details>
+<summary>Update Resources Screenshot</summary>
+<img src="docs/features/update_resources.png">
+</details>
+<details>
+<summary>Update Profit Screenshot</summary>
+<img src="docs/features/update_profit.png">
+</details>
+<details>
+<summary>Update Program Feedback Screenshot</summary>
+<img src="docs/features/update_feedback.png">
+</details>
