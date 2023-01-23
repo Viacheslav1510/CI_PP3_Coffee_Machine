@@ -65,7 +65,6 @@ def check_resources(ingredients):
     if resources_int > ingredients:
         remain = [res - ing for res, ing in zip(resources_int, ingredients)]
         return remain
-        
     else:
         print(Col.RED + "Sorry there is not enough ingredients for your drink")
         return False

@@ -4,7 +4,7 @@ import validation as val
 
 class Test(unittest.TestCase):
     """
-    Verification of the user inputs test 
+    Verification of the user inputs test
     """
     def test_validate_email(self):
         self.assertTrue(val.vaidate_email_input('email@gmail.com'), True)

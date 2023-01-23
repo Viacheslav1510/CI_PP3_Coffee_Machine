@@ -11,7 +11,6 @@ def get_email():
 
         if vaidate_email_input(email):
             break
-    
     return email
 
 
@@ -19,7 +18,7 @@ def vaidate_email_input(email):
     """
     Validates user email adress
     """
-    try: 
+    try:
         validate_email(email)
         return True
     except EmailNotValidError as error:

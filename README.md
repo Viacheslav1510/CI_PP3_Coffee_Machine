@@ -44,6 +44,7 @@ This is a command-line program for the Coffee Machine
     - [Drink Prepared](#drink-prepared-1)
     - [Report](#report-1)
     - [Turn Off Coffee Machine](#turn-off-coffee-machine)
+  - [Validation](#validation)
 
 
 ## Project Goals
@@ -251,4 +252,24 @@ The following flowchart summarises the structure and logic of the application.
 <details>
 <summary>Turn Off Screenshot</summary>
 <img src="docs/features/turn_off.png">
+</details>
+
+## Validation
+
+[PEP8 Python Validator](https://pep8ci.herokuapp.com/) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
+
+<details><summary>Check for run.py</summary>
+<img src="docs/validation">
+</details>
+
+<details><summary>Check for validation.py</summary>
+<img src="docs/validation">
+</details>
+
+<details><summary>Check for colors.py</summary>
+<img src="docs/validation">
+</details>
+
+<details><summary>Check for test_validation.py</summary>
+<img src="docs/validation">
 </details>
