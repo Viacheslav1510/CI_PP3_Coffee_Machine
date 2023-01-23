@@ -50,6 +50,10 @@ This is a command-line program for the Coffee Machine
     - [Manual Testing](#manual-testing)
     - [Automated Testing](#automated-testing)
   - [Bugs](#bugs)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+    - [Forking the GitHub Repository](#forking-the-github-repository)
+    - [Making a Local Clone](#making-a-local-clone)
 
 
 ## Project Goals
@@ -460,3 +464,39 @@ The testing approach is as follows:
 | Update profit function raises an error when you put an integer value | Convert value to list|
 | Program stops when the drink is done | Put program inside while loop and give opportunity to off it manual|
 | Program gives change in infinite number | Round change to two decimal places|
+
+## Deployment
+
+### Heroku
+This application has been deployed from GitHub to Heroku by following the steps:
+1. Create or log in to your account at heroku.com
+2. Make sure you have connected your GitHub account to heroku.com
+3. Create your list of requirements in requirements.txt by using next command in your terminal:
+   ```
+   pip3 freeze > requirements.txt
+   ```
+4. Commit changes and push them to GitHub
+5. Go to Heroku dashboard and choose Create a new app
+6. Head over to Settings tab:
+   - if you have creds.json file add it to Config Vars section where ```key```: CREDS, ```value```: your whole creds.json code
+   - to improve compatibility with various Python libraries add to Config Vars ```key```: PORT, ```value```: 8000
+   - add buildpacks ```python``` and ```node.js```
+7. Go to Deploy section:
+   - select ```GitHub``` in the Deployment section and confirm that you want to connect to Github
+   - enter your repository name in search field and click "Search", then you can click "connect" to link up your Heroku app to your Github repository code.
+   - scroll down and choose one of two options: ```Automatic Deploys``` to let Heroku rebuild your app every time you push a new change and ```Manual Deploy``` to see deployment logs as the app is built.
+8. Use View link to share your project.
+
+### Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+   
+### Making a Local Clone
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it
+3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7. Press Enter to create your local clone
