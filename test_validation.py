@@ -7,10 +7,10 @@ class Test(unittest.TestCase):
     Verification of the user inputs test
     """
     def test_validate_email(self):
-        self.assertTrue(val.vaidate_email_input('email@gmail.com'), True)
+        self.assertTrue(val.validate_email_input('email@gmail.com'), True)
 
-    def vaidate_wrong_email_input(self):
-        self.assertEqual(val.vaidate_email_input('emailgmail.com'), None)
+    def test_not_valid_email(self):
+        self.assertEqual(val.validate_email_input('email'), None)
 
     def test_validate_data_input(self):
         self.assertTrue(val.validate_data('report'), True)

@@ -170,7 +170,7 @@ def main():
 
             elif choice == 'report':
                 email = val.get_email()
-                val.vaidate_email_input(email)
+                val.validate_email_input(email)
                 report()
 
             else:
