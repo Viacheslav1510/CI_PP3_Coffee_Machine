@@ -54,6 +54,8 @@ This is a command-line program for the Coffee Machine
     - [Heroku](#heroku)
     - [Forking the GitHub Repository](#forking-the-github-repository)
     - [Making a Local Clone](#making-a-local-clone)
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
 
 
 ## Project Goals
@@ -500,3 +502,14 @@ This application has been deployed from GitHub to Heroku by following the steps:
 5. Change the current working directory to the one where you want the cloned directory
 6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
 7. Press Enter to create your local clone
+
+## Credits
+- Code Institute - for git template IDE and "Love Sandwiches - Essentials Project" which helped me with connecting the Google Spreadsheet to my project.
+- [gspread documentation](https://docs.gspread.org/en/latest/user-guide.html)- explained how to obtain a specific value from the google spreadsheet.
+- Previous Code Institute student [Aleksandra](https://github.com/aleksandracodes) - her code helped me to colorise the terminal and test my validation.
+- [Flaticon](https://cdn-icons-png.flaticon.com) - was used for the website favicon.
+
+## Acknowledgements
+- Thanks to my wife for her support and testing the program
+- My mentor Mohammad for feedback, support and his advert to learn unit testing
+- Code Institute community for resources and support.
