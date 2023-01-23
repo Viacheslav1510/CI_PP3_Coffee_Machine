@@ -45,6 +45,8 @@ This is a command-line program for the Coffee Machine
     - [Report](#report-1)
     - [Turn Off Coffee Machine](#turn-off-coffee-machine)
   - [Validation](#validation)
+  - [Testing](#testing)
+    - [Manual Testing](#manual-testing)
 
 
 ## Project Goals
@@ -272,4 +274,57 @@ The following flowchart summarises the structure and logic of the application.
 
 <details><summary>Check for test_validation.py</summary>
 <img src="docs/validation/test_py_validation.png">
+</details>
+
+## Testing
+
+The testing approach is as follows:
+1. Manual testing of user stories
+2. Automated unit testing using the Python unittest library
+
+### Manual Testing
+<details><summary>See user stories testing</summary>
+
+1. I want to have clear options to select drink 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Run program | Users are presented with 3 options to choose | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story1.png">
+</details>
+
+2. I want to be able to insert money
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Choose a drink by entering a number | Users are able to insert money | Works as expected |
+| Drink choosen| Insert coins by entering a number | Program let user insert each coin value | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story2-1.png">
+<img src="docs/testing/story2-2.png">
+</details>
+
+3. I want to get change if I insert more money than drink cost
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Money inserted | Wait until program collect your money | Users receive their change| Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story3.png">
+</details>
+
+4. I want to receive a real time feedback throughout the program running
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Type wrong input | Users can see message about allowed inputs| Works as expected |
+| Money inserted | Wait until program collect your money | Users can see message if money not enough| Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story4-1.png">
+<img src="docs/testing/story4-2.png">
 </details>
