@@ -86,9 +86,34 @@ def insert_money():
     Returns the total calculated from coins inserted.
     """
     print("\nPlease insert coins")
-    total = int(input(Col.BLUE + "How many 20c: ")) * 0.2
-    total += int(input(Col.BLUE + "How many 50c: ")) * 0.5
-    total += int(input(Col.BLUE + "How many 1€: "))
+    while True:
+        try:
+            coins_20 = input(Col.BLUE + "How many 20c: ")
+            if coins_20.isnumeric():
+                coins_20 = int(coins_20) * 0.2
+                break
+            raise ValueError(Col.RED + "Invalid input")
+        except ValueError as error:
+            print(f"{error}")
+    while True:
+        try:
+            coins_50 = input(Col.BLUE + "How many 50c: ")
+            if coins_50.isnumeric():
+                coins_50 = int(coins_50) * 0.5
+                break
+            raise ValueError(Col.RED + "Invalid input")
+        except ValueError as error:
+            print(f"{error}")
+    while True:
+        try:
+            euros = input(Col.BLUE + "How many 1€: ")
+            if euros.isnumeric():
+                euros = int(euros)
+                break
+            raise ValueError(Col.RED + "Invalid input")
+        except ValueError as error:
+            print(f"{error}")
+    total = coins_20 + coins_50 + euros
     return total
 
 
