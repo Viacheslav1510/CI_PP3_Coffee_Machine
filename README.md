@@ -4,12 +4,13 @@
 
 💻 [Visit live website](https://ci-pp3-coffee-machine.herokuapp.com/)
 
-![Mockup image]()
+![Mockup image](docs/mockup.png)
 
 ## About
 
 This is a command-line program for the Coffee Machine
 
+User can order coffee, insert coins and wait for their favourite drink. Program updates google sheets while user makes coffee.
 
 ## Table of Contents
 - [COFFEE MACHINE PROGRAM](#coffee-machine-program)
