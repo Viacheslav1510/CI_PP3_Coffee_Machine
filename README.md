@@ -467,6 +467,7 @@ The testing approach is as follows:
 | Update profit function raises an error when you put an integer value | Convert value to list|
 | Program stops when the drink is done | Put program inside while loop and give opportunity to off it manual|
 | Program gives change in infinite number | Round change to two decimal places|
+| Program breaks if user enter wrong input in insert coins function | Handle wrong input with try/except block|
 
 ## Deployment
 
