@@ -1,7 +1,12 @@
 <body>
     <button onclick="window.location.reload()">Run Program</button>
     <div id="terminal"></div>
-
+    <footer id="footer">
+        <a href="https://github.com/Viacheslav1510" aria-label="github"><i class="fa-brands fa-github fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/via-kyiv-1b699824a/" target="_blank" aria-label="Linkedin"><i class="footer-icon fa-brands fa-linkedin fa-2x"></i></a>
+    </footer>
+    <!-- Font Awesome icon installation -->
+    <script src="https://kit.fontawesome.com/0f9cf7d513.js" crossorigin="anonymous"></script>
     <script>
         var term = new Terminal({
             cols: 80,
@@ -24,4 +29,5 @@
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
     </script>
+
 </body>
