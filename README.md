@@ -348,6 +348,10 @@ The following flowchart summarises the structure and logic of the application.
 <img src="docs/validation/validation_py_valid.png">
 </details>
 
+<details><summary>Check for accounts.py</summary>
+<img src="docs/validation/accounts_validation.png">
+</details>
+
 <details><summary>Check for colors.py</summary>
 <img src="docs/validation/colors_validation.png">
 </details>
@@ -365,17 +369,32 @@ The testing approach is as follows:
 ### Manual Testing
 <details><summary>See user stories testing</summary>
 
-1. I want to have clear options to select drink 
+1. I want to log in to program
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Program started | Run program | Users are presented with 3 options to choose | Works as expected |
+| Log in | Open live website | User can enter their email to Log in | Works as expected |
+| Log in | Enter valid email | User can see program start if email exists | Works as expected |
+| Log in | Enter valid email | User can create new account if email doesn't exists | Works as expected |
+| Log in | Enter invalid email | User can see message about wrong input | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/story1.png">
+<img src="docs/testing/story1-1.png">
+<img src="docs/testing/story1-2.png">
+<img src="docs/testing/story1-3.png">
 </details>
 
-2. I want to be able to insert money
+2. I want to have clear options to select drink 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Program started | Log In | Users are presented with 3 options to choose | Works as expected |
+
+<details><summary>Screenshot</summary>
+<img src="docs/testing/story2.png">
+</details>
+
+3. I want to be able to insert money
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -383,21 +402,20 @@ The testing approach is as follows:
 | Drink choosen| Insert coins by entering a number | Program let user insert each coin value | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/story2-1.png">
-<img src="docs/testing/story2-2.png">
+<img src="docs/testing/story3.png">
 </details>
 
-3. I want to get change if I insert more money than drink cost
+4. I want to get change if I insert more money than drink cost
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
 | Money inserted | Wait until program collect your money | Users receive their change| Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/story3.png">
+<img src="docs/testing/story4.png">
 </details>
 
-4. I want to receive a real time feedback throughout the program running
+5. I want to receive a real time feedback throughout the program running
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -405,11 +423,10 @@ The testing approach is as follows:
 | Money inserted | Wait until program collect your money | Users can see message if money not enough| Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/story4-1.png">
-<img src="docs/testing/story4-2.png">
+
 </details>
 
-5. I want to see report
+1. I want to see report
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
