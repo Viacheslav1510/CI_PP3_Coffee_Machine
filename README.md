@@ -10,7 +10,7 @@
 
 This is a command-line program for the Coffee Machine
 
-User can order coffee, insert coins and wait for their favourite drink. Program updates google sheets while user makes coffee.
+User can log in to coffee machine, order coffee, insert coins and wait for their favourite drink. Also program gives opportunity to collect bonuses to get free drink if bonuses enough for it. Program updates google sheets while user makes coffee.
 
 ## Table of Contents
 - [COFFEE MACHINE PROGRAM](#coffee-machine-program)
@@ -23,10 +23,12 @@ User can order coffee, insert coins and wait for their favourite drink. Program 
     - [Target Audience](#target-audience)
     - [User Requirements and Expectations](#user-requirements-and-expectations)
     - [User Manual](#user-manual)
+      - [Log in](#log-in)
       - [Program started](#program-started)
       - [Drink chosen](#drink-chosen)
       - [Drink prepared](#drink-prepared)
       - [Report](#report)
+      - [Bonus](#bonus)
       - [Off](#off)
   - [User Stories](#user-stories)
     - [Users](#users)
@@ -63,9 +65,11 @@ User can order coffee, insert coins and wait for their favourite drink. Program 
 
 ### User Goals
 
+- Log in to coffee machine
 - Order favourite coffee
 - Easy menu to order coffee
 - Be able to insert money to buy coffee
+- Collect bonuses
 
 ### Site Owner Goals
 
@@ -90,14 +94,21 @@ User can order coffee, insert coins and wait for their favourite drink. Program 
 
 <details><summary>Click here to view instructions</summary>
 
+#### Log in
+- Program ask user to log in.
+- If user exist than program take account and work with it
+- If user doesn't exists, program ask user to make account to receive bonuses   
+
 #### Program started
 - On the top of the program user can see logo and question what want user to drink
 - Program checks wrong input, rises an error if it wrong and shows allowed inputs
-- Coffee machine allows: '1', '2', '3' for choosing drink, 'off' and 'report' to off machine or see profit and resourses left respectively
+- Coffee machine allows: '1', '2', '3' for choosing drink, 'off' and 'report' to off machine or see profit and resourses left respectively or 'bonus' to see how many bonuses user has.
                                     
 #### Drink chosen
 - Program checks if there are enough resourses in coffee machine to make drink
-- Program asks to insert coins by number input
+- Program cheks is there are enough bonuses to make free coffee
+- If bonuses enough - program gives user feedback that drink is free 
+- If bonuses not enough for free drink - program asks to insert coins by number input
 - Coffee machine asks how many 20c, 50c and 1€ user will insert
   - if inserted money enough program makes choosen drink and gives user change
   - if inserted money not enough program raises massage about refund money and how much drink costs
@@ -105,13 +116,15 @@ User can order coffee, insert coins and wait for their favourite drink. Program 
 #### Drink prepared
 - Program updates resourses in google sheet 
 - Program updates profit in google sheet according to the cost of the drink
+- If user buy drink - program gives bonus and update account in google sheet
 - Program raises massage about prepared drink
 
 #### Report
 - User can check report about resourses left and profit
-- To see report user should type "report" in main menu
-- User have to enter their email to pass report menu
-  - this feature can be used in future to pass report menu for an authorised users only 
+
+#### Bonus
+- User can check their bonus
+- Program gives feedback how much bonus user should have to get free drink
 
 #### Off
 - To stop program user can type "off" in main menu
@@ -120,20 +133,24 @@ User can order coffee, insert coins and wait for their favourite drink. Program 
 ## User Stories
 
 ### Users
-1. I want to have clear options to select drink
-2. I want to be able to insert money 
-3. I want to get change if I insert more money than drink cost
-4. I want to receive a real time feedback throughout the program running
-5. I want to see report
-6. I want to be able to turn off the coffee machine
+1. I want to log in to program
+2. I want to have clear options to select drink
+3. I want to be able to insert money 
+4. I want to get change if I insert more money than drink cost
+5. I want to receive a real time feedback throughout the program running
+6. I want to collect bonuses
+7. I want to check my bonuses
+8. I want to have free drink with collected bonuses
+9. I want to see report
+10. I want to be able to turn off the coffee machine
 
 ### Coffee machine Owner
-7. I want users to easily select options from the menu
-8. I want the user to get feedback in case of wrong input
-9. I want collect profit after user insert money
-10. I want to let user to see report after authorization
-11. I want to validate wrong email input
-12. I want to update google sheets while user makes their drink
+11. I want users to easily select options from the menu
+12. I want the user to get feedback in case of wrong input
+13. I want collect profit after user insert money
+14. I want to let user to see report after authorization
+15. I want to validate wrong email input
+16. I want to update google sheets while user makes their drink
 
 ## Technical Design
 
