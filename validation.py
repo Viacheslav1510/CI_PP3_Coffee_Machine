@@ -38,7 +38,7 @@ def validate_data(value):
                         'off', 'report' and 'bonus'"
             )
     except ValueError as error:
-        print(Col.RED + f"\nInvalid data - {error}, /nPlease try again.\n")
+        print(Col.RED + f"\nInvalid data - {error}\nPlease try again.\n")
         return False
 
     return True

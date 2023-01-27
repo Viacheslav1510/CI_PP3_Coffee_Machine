@@ -559,9 +559,9 @@ The testing approach is as follows:
 <details><summary>See unit testing</summary>
 
 - unittest Python library was used  to test my validation functions
-- Were tested separate functions to verify correct and incorect user input for validation data input and validation email input
-  <img src="docs/testing/auto_test_code.png">
-  <img src="docs/testing/auto_test_result.png">
+- Were tested separate functions to verify correct and incorect user input for validation data input and validation email input:
+<img src="docs/testing/auto_test_code.png">
+<img src="docs/testing/auto_test_terminal.png">
 </details>
 
 ## Bugs
