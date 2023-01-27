@@ -560,6 +560,7 @@ The testing approach is as follows:
 
 - unittest Python library was used  to test my validation functions
 - Were tested separate functions to verify correct and incorect user input for validation data input and validation email input:
+
 <img src="docs/testing/auto_test_code.png">
 <img src="docs/testing/auto_test_terminal.png">
 </details>
@@ -574,6 +575,7 @@ The testing approach is as follows:
 | Program stops when the drink is done | Put program inside while loop and give opportunity to off it manual|
 | Program gives change in infinite number | Round change to two decimal places|
 | Program breaks if user enter wrong input in insert coins function | Handle wrong input with try/except block|
+| Program ask user to log in every time when you choose drink | Put validate user function outside while loop|
 
 ## Deployment
 
@@ -614,6 +616,7 @@ This application has been deployed from GitHub to Heroku by following the steps:
 ## Credits
 - Code Institute - for git template IDE and "Love Sandwiches - Essentials Project" which helped me with connecting the Google Spreadsheet to my project.
 - [gspread documentation](https://docs.gspread.org/en/latest/user-guide.html)- explained how to obtain a specific value from the google spreadsheet.
+- My course collegue [Dimie](https://github.com/Dee68/milestone_project3) - his code helped me to create user account for my bonuses worksheet.
 - Previous Code Institute student [Aleksandra](https://github.com/aleksandracodes) - her code helped me to colorise the terminal and test my validation.
 - [Flaticon](https://cdn-icons-png.flaticon.com) - was used for the website favicon.
 
