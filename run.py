@@ -287,9 +287,9 @@ def main():
     logo()
     is_on = True
     while is_on:
-        choice_prompt = Col.GREEN + f"{user.get_name()}, what would you like?\n"
-        choice_prompt += Col.GREEN + "espresso(1)/cappuccino(2)/latte(3): "
-        choice = input(choice_prompt)
+        choice_hint = Col.GREEN + f"{user.get_name()}, what would you like?\n"
+        choice_hint += Col.GREEN + "espresso(1)/cappuccino(2)/latte(3): "
+        choice = input(choice_hint)
         if val.validate_data(choice):
             if choice == 'off':
                 print("See you soon!")

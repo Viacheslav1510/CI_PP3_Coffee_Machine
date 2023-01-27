@@ -24,7 +24,7 @@ def validate_email_input(email):
     except EmailNotValidError as error:
         print(Col.RED + f"\n{error}")
         print(Col.RED + "Please try again.\n")
-    
+
 
 def validate_data(value):
     """

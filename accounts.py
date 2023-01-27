@@ -13,7 +13,7 @@ class Account:
         email = self.email
         bonus = self.bonus
         return f"{name}, your bonus is {bonus}. Your email is: {email}"
-    
+
     # get values
     def get_name(self):
         return self.name
