@@ -41,11 +41,13 @@ User can log in to coffee machine, order coffee, insert coins and wait for their
       - [Python Libraries](#python-libraries)
       - [Third Party Libraries](#third-party-libraries)
   - [Features](#features)
+    - [Log in](#log-in-1)
     - [Program started](#program-started-1)
     - [Drink choosen](#drink-choosen)
     - [Money inserted](#money-inserted)
     - [Drink Prepared](#drink-prepared-1)
     - [Report](#report-1)
+    - [Bonus](#bonus-1)
     - [Turn Off Coffee Machine](#turn-off-coffee-machine)
     - [Google Sheets](#google-sheets)
   - [Validation](#validation)
@@ -96,7 +98,7 @@ User can log in to coffee machine, order coffee, insert coins and wait for their
 
 #### Log in
 - Program ask user to log in.
-- If user exist than program take account and work with it
+- If user exists than program take account and work with it
 - If user doesn't exists, program ask user to make account to receive bonuses   
 
 #### Program started
@@ -189,11 +191,30 @@ The following flowchart summarises the structure and logic of the application.
 
 ## Features
 
+### Log in
+- User can enter their email address to log in
+- If user exists than program take account and work with it
+- If user doesn't exists, program ask user to make account to receive bonuses
+- Program validates wrong user input 
+- User stories covered: 1, 15
+<details>
+<summary>Log In Screenshot</summary>
+<img src="docs/features/log_in.png">
+<img src="docs/features/log_in2.png">
+</details>
+<details>
+<summary>Wrong Email Input Screenshot</summary>
+<img src="docs/features/wrong_email.png">
+</details>
+
 ### Program started
 - User can see logo of the program
 - User can choose their favourite drink
-- User can off the machine or look at report
-- User stories covered: 1, 7
+- User can check their bonuses
+- User can check report about profit abd resources left
+- User can off the machine
+- User get feedback about wrong input
+- User stories covered: 2, 7, 9, 10, 11, 12, 14
 <details>
 <summary>Program started Screenshot</summary>
 <img src="docs/features/program_started.png">
@@ -201,9 +222,13 @@ The following flowchart summarises the structure and logic of the application.
 
 ### Drink choosen
 - If resources sufficient:
-  - User can see message insert coins to buy coffee
-  - Program ask user hom many 20c, 50c and 1€ coins user insert
-  - User stories covered: 2
+  - Program checks whether the ordered drink is free according to user bonuses
+  - If drink not free: 
+    - User can see message insert coins to buy coffee
+    - Program ask user hom many 20c, 50c and 1€ coins user insert
+    - Program validates every user input and gives a feedback
+    - Program gives user bonus according to ordered drink cost
+    - User stories covered: 3, 5, 8, 12
   <details>
   <summary>Resources enough Screenshot</summary>
   <img src="docs/features/enough_resources.png">
@@ -211,7 +236,7 @@ The following flowchart summarises the structure and logic of the application.
 
 - If resources not enough:
   - User receive a message that resources is not enough to make drink
-  - User stories covered: 4
+  - User stories covered: 5
   <details>
   <summary>Resources not enough Screenshot</summary>
   <img src="docs/features/no_resources.png">
@@ -222,7 +247,8 @@ The following flowchart summarises the structure and logic of the application.
   - User receive their change
   - User see message about updating profit and resources
   - User see message that their drink prepared
-  - User stories covered: 3, 4, 9
+  - User see message how many bonuses they receive
+  - User stories covered: 4, 5, 6, 9
   <details>
   <summary>Money enough Screenshot</summary>
   <img src="docs/features/money_enough.png">
@@ -231,7 +257,7 @@ The following flowchart summarises the structure and logic of the application.
   - User notified that not enough money to buy drink 
   - User can see message about drink cost
   - User can choose their drink again
-  - User stories covered: 8      
+  - User stories covered: 5      
   <details>
   <summary>Resources not enough Screenshot</summary>
   <img src="docs/features/money_not_enough.png">
@@ -240,8 +266,9 @@ The following flowchart summarises the structure and logic of the application.
 ### Drink Prepared
 - Program updates resources worksheet
 - Program updates profit worksheet
+- Program updates bonuses worksheet
 - Program gives a feedback about updating worksheet
-- User stories covered: 9, 12
+- User stories covered: 13, 16
 <details>
 <summary>Update Resources Screenshot</summary>
 <img src="docs/features/update_resources.png">
@@ -251,33 +278,35 @@ The following flowchart summarises the structure and logic of the application.
 <img src="docs/features/update_profit.png">
 </details>
 <details>
+<summary>Update Bonuses Screenshot</summary>
+<img src="docs/features/bonus_worksheet.png">
+</details>
+<details>
 <summary>Update Program Feedback Screenshot</summary>
 <img src="docs/features/update_feedback.png">
 </details>
 
 ### Report 
 - User can check report about resources and profit
-- Program ask to insert valid email to pass 
-  - If email not valid user receive a message to try again
-  - If email valid user can see resources remain and profit
-- User stories covered: 5, 10, 11
+- User stories covered: 9, 14
 <details>
-<summary>Enter Email Screenshot</summary>
-<img src="docs/features/enter_email.png">
+<summary>Report Screenshot</summary>
+<img src="docs/features/report.png">
 </details>
+
+### Bonus
+- User can check their bonus
+- Program asks user to input their email to pass
+- User stories covered: 7
 <details>
-<summary>Email Valid Screenshot</summary>
-<img src="docs/features/email_valid.png">
-</details>
-<details>
-<summary>Email Not Valid Screenshot</summary>
-<img src="docs/features/email_not_valid.png">
+<summary>Bonus Screenshot</summary>
+<img src="docs/features/bonus.png">
 </details>
 
 ### Turn Off Coffee Machine
 - User can type 'off' to turn of the coffe machine
 - User receive message "See you soon"
-- User stories covered: 6
+- User stories covered: 10
 <details>
 <summary>Turn Off Screenshot</summary>
 <img src="docs/features/turn_off.png">
@@ -285,7 +314,7 @@ The following flowchart summarises the structure and logic of the application.
 
 ### Google Sheets
 - Google sheets used to store coffee machine data
-- There are three worksheets:
+- There are four worksheets:
   - Menu worksheet 
     <details>
     <summary>See feature</summary>
@@ -301,7 +330,11 @@ The following flowchart summarises the structure and logic of the application.
     <summary>See feature</summary>
     <img src="docs/features/profit.png">
     </details>  
- 
+  - Bonuses worksheet
+    <details>
+    <summary>See feature</summary>
+    <img src="docs/features/bonuses.png">
+    </details> 
 
 ## Validation
 
