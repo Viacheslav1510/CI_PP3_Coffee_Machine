@@ -1,7 +1,9 @@
+import os
 import gspread
 from google.oauth2.service_account import Credentials
 import validation as val
 from colors import Color as Col
+from accounts import Account as customer
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -13,6 +15,13 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('coffee_machine')
+
+
+def clear():
+    """
+    Clears output after call
+    """
+    os.system('clear')
 
 
 def logo():
@@ -85,7 +94,7 @@ def insert_money():
     """
     Returns the total calculated from coins inserted.
     """
-    print("\nPlease insert coins")
+    print(Col.BLUE + "\nPlease insert coins")
     while True:
         try:
             coins_20 = input(Col.BLUE + "How many 20c: ")
@@ -177,40 +186,135 @@ def report():
     print(Col.UPDATE + f"All profit: {profit_data[-1][0]}€\n")
 
 
+def create_customer():
+    """
+    Creates customer account inside bonuses worksheet
+    """
+    customer_acc = []
+    while True:
+        name = input(Col.YELLOW + "Enter your name: ").title()
+        if not name.isalpha():
+            print(Col.RED + "Enter real name, please")
+        else:
+            break
+    email = val.get_email()
+    bonus = 0
+    customer_acc.append(name)
+    customer_acc.append(email)
+    customer_acc.append(bonus)
+    account_holder = customer(name, email, bonus)
+    SHEET.worksheet('bonuses').append_row(customer_acc)
+    return account_holder
+
+
+def validate_user():
+    """
+    Gets values from bonuses worksheet
+    Cheks user authorised or not
+    Creates new customer if user not authorised
+    Returns user holder
+    """
+    customer_data = SHEET.worksheet('bonuses').get_all_values()[1:]
+    email_input = val.get_email()
+    client = [row for row in customer_data if email_input == row[1]]
+    if len(client) == 0:
+        message = "\nSeems you don't have an account\n"
+        print(message + "Create an account to receive bonuses\n")
+        new_account = create_customer()
+        return new_account
+    else:
+        name = client[0][0]
+        email = client[0][1]
+        bonus = client[0][2]
+        account_to_update = customer(name, email, bonus)
+        return account_to_update
+
+
+def update_bonus(account):
+    """
+    Updates bonus cell in worksheet
+    """
+    bonus = account.bonus
+    account_holder = SHEET.worksheet('bonuses').find(account.email)
+    SHEET.worksheet('bonuses').update_cell(account_holder.row, 3, bonus)
+
+
+def is_drink_free(account, drink_cost):
+    """
+    Cheks is enough bonuses to get free drink
+    If enough - returns True
+    If not enough - returns False
+    """
+    name = account.get_name()
+    email = account.get_email()
+    bonus = int(account.get_bonus())
+    if bonus > 0 and bonus/drink_cost >= 2:
+        new_bonus = bonus - drink_cost * 2
+        customer_to_update = customer(name, email, new_bonus)
+        update_bonus(customer_to_update)
+        print(Col.GREEN + "\nYour drink is free today!\n")
+        return True
+    else:
+        return False
+
+
+def user_regard(account, drink_cost):
+    """
+    Updates user bonus according to ordered drink cost
+    """
+    print(Col.GREEN + f"Your reward is {drink_cost} points\n")
+    bonus = int(account.get_bonus()) + drink_cost
+    name = account.get_name()
+    email = account.get_email()
+    customer_to_update = customer(name, email, bonus)
+    update_bonus(customer_to_update)
+
+
+def get_user_bonus(account):
+    bonus = account.get_bonus()
+    print(Col.UPDATE + f"\nYour bonus is {bonus}")
+    print(Col.UPDATE + "You need to have for free drink:")
+    print(Col.UPDATE + "4 - for espresso, 6 - for cappuccino, 8 - for latte\n")
+
+
 def main():
     """
     Run all program functions
     """
+    print(Col.YELLOW + "Hello\nLog in to continue please")
+    user = validate_user()
+    clear()
+    logo()
     is_on = True
     while is_on:
-        choice_prompt = Col.GREEN + "What would you like?\n"
+        choice_prompt = Col.GREEN + f"{user.get_name()}, what would you like?\n"
         choice_prompt += Col.GREEN + "espresso(1)/cappuccino(2)/latte(3): "
         choice = input(choice_prompt)
-
         if val.validate_data(choice):
-
             if choice == 'off':
                 print("See you soon!")
                 is_on = False
-
             elif choice == 'report':
-                email = val.get_email()
-                val.validate_email_input(email)
                 report()
-
+            elif choice == 'bonus':
+                user = validate_user()
+                get_user_bonus(user)
             else:
                 ingredients = get_drink_ingredients(choice)
-
+                drink_cost = get_drink_cost(choice)
                 if check_resources(ingredients):
-                    drink_cost = get_drink_cost(choice)
-                    user_money = insert_money()
-
-                    if check_transaction(user_money, drink_cost):
+                    if is_drink_free(user, drink_cost):
                         remain_ingredients = check_resources(ingredients)
                         update_resources(remain_ingredients)
-                        update_profit(drink_cost)
                         make_coffee(choice)
+                    else:
+                        user_money = insert_money()
+                        if check_transaction(user_money, drink_cost):
+                            remain_ingredients = check_resources(ingredients)
+                            update_resources(remain_ingredients)
+                            update_profit(drink_cost)
+                            user_regard(user, drink_cost)
+                            make_coffee(choice)
 
 
-logo()
 main()
