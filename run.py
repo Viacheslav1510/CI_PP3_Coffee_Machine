@@ -273,7 +273,7 @@ def user_regard(account, drink_cost):
 def get_user_bonus(account):
     bonus = account.get_bonus()
     print(Col.UPDATE + f"\nYour bonus is {bonus}")
-    print(Col.UPDATE + "You need to have for free drink:")
+    print(Col.UPDATE + "You need to have to get free drink:")
     print(Col.UPDATE + "4 - for espresso, 6 - for cappuccino, 8 - for latte\n")
 
 
