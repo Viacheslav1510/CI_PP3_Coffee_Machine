@@ -35,10 +35,10 @@ def validate_data(value):
         if value not in allowed_inputs:
             raise ValueError(
                 "Coffee machine allows: '1', '2', '3' for choosing drink,\n \
-                                    'off', 'report' and 'bonus'"
+                        'off', 'report' and 'bonus'"
             )
     except ValueError as error:
-        print(Col.RED + f"\nInvalid data - {error}, please try again.\n")
+        print(Col.RED + f"\nInvalid data - {error}, /nPlease try again.\n")
         return False
 
     return True
