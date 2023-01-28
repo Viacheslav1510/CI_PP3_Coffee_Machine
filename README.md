@@ -435,6 +435,7 @@ The testing approach is as follows:
 <details><summary>Screenshot</summary>
 <img src="docs/testing/story6-1.png">
 <img src="docs/testing/story6-2.png">
+<img src="docs/testing/story6-3.png">
 </details>
 
 7. I want to check my bonuses
@@ -466,7 +467,7 @@ The testing approach is as follows:
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Program started | Enter 'report' | Users can see report| Works as expected |
+| Program started | Enter 'report' | User can see report| Works as expected |
 
 <details><summary>Screenshot</summary>
 <img src="docs/testing/story9.png">
@@ -498,9 +499,9 @@ The testing approach is as follows:
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Log in | Type wrong email | Users can see message about wrong input| Works as expected |
-| Program started | Type wrong input | Users can see message about allowed inputs| Works as expected |
-| Money inserted | Type wrong input | Users can see message about invalid input| Works as expected |
+| Log in | Type wrong email | User can see message about wrong input| Works as expected |
+| Program started | Type wrong input | User can see message about allowed inputs| Works as expected |
+| Money inserted | Type wrong input | User can see message about invalid input| Works as expected |
 
 <details><summary>Screenshot</summary>
 <img src="docs/testing/story12-1.png">
