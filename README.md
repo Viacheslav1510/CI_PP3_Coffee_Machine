@@ -618,7 +618,7 @@ This application has been deployed from GitHub to Heroku by following the steps:
 - [gspread documentation](https://docs.gspread.org/en/latest/user-guide.html)- explained how to obtain a specific value from the google spreadsheet.
 - My course collegue [Dimie](https://github.com/Dee68/milestone_project3) - his code helped me to create user account for my bonuses worksheet.
 - Previous Code Institute student [Aleksandra](https://github.com/aleksandracodes) - her code helped me to colorise the terminal and test my validation.
-- [Flaticon](https://cdn-icons-png.flaticon.com) - was used for the website favicon.
+- [Emojipedia](https://emojipedia.org/hot-beverage/) - used to get icon for prepared drink. 
 
 ## Acknowledgements
 - Thanks to my wife for her support and testing the program
