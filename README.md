@@ -171,7 +171,7 @@ The following flowchart summarises the structure and logic of the application.
 ### Frameworks & Tools
 
 - [Diagrams.net](https://app.diagrams.net/) was used to draw program flowchart
-- [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store drinks menu, resources and profit
+- [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store drinks menu, resources, profit and bonuses worksheets.
 - [Google Cloud Platform](https://cloud.google.com/cloud-console/) was used to manage access and permissions to the Google Services such as Google auth, sheets etc.
 - [GitHub](https://github.com/) was used as a remote repository to store project code
 - [Heroku Platform](https://dashboard.heroku.com/) was used to deploy the project into live environment
