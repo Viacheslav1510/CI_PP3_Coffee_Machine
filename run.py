@@ -241,7 +241,7 @@ def update_bonus(account):
 
 def is_drink_free(account, drink_cost):
     """
-    Cheks is enough bonuses to get free drink
+    Cheks is enough bonuses to get a free drink
     If enough - returns True
     If not enough - returns False
     """
@@ -271,6 +271,9 @@ def user_regard(account, drink_cost):
 
 
 def get_user_bonus(account):
+    """
+    Gets user bonus in worksheet and prints hint for the user
+    """
     bonus = account.get_bonus()
     print(Col.UPDATE + f"\nYour bonus is {bonus}")
     print(Col.UPDATE + "You need to have to get free drink:")
